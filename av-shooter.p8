@@ -7,12 +7,18 @@ __lua__
 #include scripts/main.lua
 
 --entities
+#include scripts/entities/bullets.lua
+#include scripts/entities/enemies.lua
+#include scripts/entities/explosions.lua
 #include scripts/entities/player.lua
+#include scripts/entities/reactor.lua
+#include scripts/entities/stars.lua
 
 --scenes
 
 
 --utilities
+#include scripts/utilities/collision.lua
 
 __gfx__
 000000000050050000a00a0000300300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

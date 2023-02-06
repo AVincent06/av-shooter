@@ -9,6 +9,7 @@ function Player.new(x, y, speed, sprite, box)
     self.speed = speed
     self.sprite = sprite
     self.box = box
+	self.reactor = Reactor.new(5, 0.3, self.x, self.y)
     return self
 end
 
@@ -34,15 +35,17 @@ function Player:update()
 	 self.y+7+self.speed<127 then
 	 self.y+=self.speed
 	end
-	if(btnp(❎)) shoot()
-	
-	-- for e in all(enemies) do
-	-- 	if collision(e,self) then
-	-- 		state=1
-	-- 	end
-	-- end
 end
 
 function Player:draw()
     spr(self.sprite, self.x, self.y)
+	self.reactor:draw(self.x, self.y)
+end
+
+function Player:collisionWith(targets)
+	for t in all(targets.enemies) do
+		if collision(t,self) then
+			state=1
+		end
+	end
 end

@@ -24,7 +24,7 @@ function update_game()
     player:collisionWith(enemies)
     stars:update()
     enemies:update(bullets,explosions)
-    if(btnp(❎)) bullets:fire(player.x, player.y)
+    if(btnp(❎)) bullets:fire(player.x, player.y, player.x, 1)
     bullets:update()
     explosions:update()
 end

@@ -1,3 +1,10 @@
+function calculateAngle(aX, aY, bX, bY)
+	dX = bX - aX
+	dY = bY - aY
+	angle = atan2(dY, dX)
+	return angle
+end
+
 function collision(a,b)
 	return not(
 		a.x+a.box.x1>b.x+b.box.x2 or

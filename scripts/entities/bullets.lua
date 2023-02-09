@@ -8,10 +8,11 @@ function Bullets.new()
     return self
 end
 
-function Bullets:fire(posX, posY)
+function Bullets:fire(startX, startY, endX, endY)
 	new_bullet={
-		x=posX,
-		y=posY,
+		x=startX,
+		y=startY,
+		angle=calculateAngle(startX, startY, endX, endY),
 		speed=4,
 		box={x1=2,y1=0,x2=5,y2=4}
 	}
@@ -21,7 +22,10 @@ end
 
 function Bullets:update()
 	for b in all(self.bullets) do
-		b.y-=b.speed
+		dX=sin(b.angle)*b.speed
+		dY=cos(b.angle)*b.speed
+		b.x += dX
+		b.y += dY
 		if b.y<-8 then
 			del(self.bullets,b)
 		end

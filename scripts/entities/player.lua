@@ -42,9 +42,9 @@ function Player:draw()
 	self.reactor:draw(self.x, self.y)
 end
 
-function Player:collisionWith(targets)
-	for t in all(targets.enemies) do
-		if collision(t,self) then
+function Player:collisionWith(target)
+	for t in all(target.group) do
+		if collision(t, self) and isEnemy(t, self) then
 			state=1
 		end
 	end

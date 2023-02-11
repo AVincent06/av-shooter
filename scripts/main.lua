@@ -22,9 +22,17 @@ end
 function update_game()
     player:update()
     player:collisionWith(enemies)
+    player:collisionWith(bullets)
     stars:update()
     enemies:update(bullets,explosions)
-    if(btnp(❎)) bullets:fire(player.x, player.y, player.x, 1)
+
+    --fire
+    if(btnp(❎)) bullets:fire(player.x, player.y, player.x, 1, Sprite.BULLET_P, 2, 0, 5, 4, 4)
+    if(t()%1==0) then
+        local gunner = rnd(enemies.group)
+        bullets:fire(gunner.x, gunner.y, player.x, player.y, Sprite.BULLET_E, 3, 3, 6, 6, 1)
+    end
+
     bullets:update()
     explosions:update()
 end

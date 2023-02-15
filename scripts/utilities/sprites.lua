@@ -6,4 +6,5 @@ Sprite = {
     PLAYER = 1,     --flag 1000 0000
     PLAYER_L = 17,  --flag 1000 0000
     PLAYER_R = 33,  --flag 1000 0000
+    PLAYER_1UP=49,
 }

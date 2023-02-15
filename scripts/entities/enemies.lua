@@ -8,7 +8,7 @@ function Enemies.new()
     return self
 end
 
-function Enemies:update(bullets,explosions)
+function Enemies:update(bullets)
     if #self.group == 0 then
         self:spawn(ceil(rnd(7)))
     end
@@ -58,7 +58,7 @@ function Enemies:spawn(amount)
 		new_enemy={
 			x=gap*i+8*(i-1),
 			y=-20,
-			life=4,
+			life=2,
 			score=100,
 			hflip=false,
 			sprite=Sprite.ALIEN_D,

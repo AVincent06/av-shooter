@@ -46,8 +46,14 @@ function draw_game()
     enemies:draw(player.x, player.y)
     bullets:draw()
     explosions:draw()
-    print(score,2,2,10)
 	rect(0,0,127,127,5)
+    print(score,2,2,10)
+    if player.life > 0 then
+        for i=1,player.life do
+            spr(Sprite.PLAYER_1UP, 2+(7*i)-7, 123)
+        end
+    end
+
 end
 
 --scene gameover

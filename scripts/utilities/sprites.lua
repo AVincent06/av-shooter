@@ -1,6 +1,7 @@
 Sprite = {
-    ALIEN_D = 3,    --flag 0100 0000
-    ALIEN_U = 19,   --flag 0100 0000
+    ALIEN_1 = 3,    --flag 0100 0000
+    ALIEN_2 = 19,   --flag 0100 0000
+    ALIEN_3 = 35,   --flag 0100 0000
     BULLET_E = 4,   --flag 0100 0000
     BULLET_P = 2,   --flag 1000 0000
     PLAYER = 1,     --flag 1000 0000

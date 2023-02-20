@@ -8,7 +8,7 @@ function Enemies.new()
     return self
 end
 
-function Enemies:update(bullets)
+function Enemies:update()
     if #self.group == 0 then
         self:spawn(ceil(rnd(7)))
     end
@@ -33,21 +33,28 @@ function Enemies:update(bullets)
 	end
 end
 
-function Enemies:draw(playerX, playerY)
+function Enemies:draw()
 	for e in all(self.group) do
-		if(playerX+8<=e.x) e.hflip=false
-		if(playerX>=e.x+8) e.hflip=true
-		if(playerY>=e.y+8) e.sprite=Sprite.ALIEN_D
-		if(playerY+8<=e.y) e.sprite=Sprite.ALIEN_U
+
+		if(e.animF<=1 or e.animF>=60) then
+			e.animD = -e.animD
+			e.animF += e.animV*e.animD
+		else
+			e.animF += e.animV*e.animD
+		end
+		if(e.animF>=1 and e.animF<=15) e.sprite=e.animation[1]
+		if(e.animF>=16 and e.animF<=45) e.sprite=e.animation[2]
+		if(e.animF>=46 and e.animF<=60) e.sprite=e.animation[3]
+
 		if(e.flash > 0) then
 			for i=1,15 do
 				pal(i,7)
 			end 
-			spr(e.sprite, e.x, e.y, 1, 1, e.hflip)
+			spr(e.sprite, e.x, e.y)
 			pal()
 			e.flash-=1
 		else
-			spr(e.sprite, e.x, e.y, 1, 1, e.hflip)
+			spr(e.sprite, e.x, e.y)
 		end
 	end
 end
@@ -60,10 +67,17 @@ function Enemies:spawn(amount)
 			y=-20,
 			life=2,
 			score=100,
-			hflip=false,
-			sprite=Sprite.ALIEN_D,
+			sprite=Sprite.ALIEN_1,
 			flash=0,
-			box={x1=0,y1=0,x2=7,y2=7}
+			box={x1=2,y1=2,x2=5,y2=5},
+			animD=1,
+			animF=2,
+			animV=2,
+			animation={
+				Sprite.ALIEN_1,
+				Sprite.ALIEN_2,
+				Sprite.ALIEN_3,
+			}
 		}
 		add(self.group,new_enemy)
 	end

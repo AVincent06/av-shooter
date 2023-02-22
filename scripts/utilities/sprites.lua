@@ -8,4 +8,10 @@ Sprite = {
     PLAYER_L = 17,  --flag 1000 0000
     PLAYER_R = 33,  --flag 1000 0000
     PLAYER_1UP=49,
+    TITLE_A1 = 128,
+    TITLE_A2 = 129,
+    TITLE_A3 = 130,
+    TITLE_A4 = 131,
+    TITLE_A5 = 132,
+    TITLE_A6 = 133,
 }

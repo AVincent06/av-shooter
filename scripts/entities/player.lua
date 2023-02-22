@@ -69,7 +69,7 @@ function Player:collisionWith(target)
 				del(target.group,t)
 				self.life -= 1
 				self.blinking = self.blinkTime
-				if(self.life<0) state=1
+				if(self.life<0) load_scene("gameover")
 			end
 		end
 	end
